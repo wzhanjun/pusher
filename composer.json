@@ -1,0 +1,20 @@
+{
+    "name": "wzhanjun/pusher",
+    "description": "push packages",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jun",
+            "email": "aaasayok@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wzhanjun\\Push\\": "src"
+        }
+    }
+}
