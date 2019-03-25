@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48f15ea35bb67bf2bed538aa65bfb64d",
+    "content-hash": "0dbea7c6d3784a4a3a2e295ef0eb087d",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -308,14 +308,54 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
+            "name": "wzhanjun/igt-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wzhanjun/igt-sdk.git",
+                "reference": "2db89bedc3c434274578dd3fee1e4aae09de14b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wzhanjun/igt-sdk/zipball/2db89bedc3c434274578dd3fee1e4aae09de14b7",
+                "reference": "2db89bedc3c434274578dd3fee1e4aae09de14b7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wzhanjun\\Igetui\\Sdk\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jun",
+                    "email": "aaasayok@gmail.com"
+                }
+            ],
+            "description": "igetui sdk",
+            "support": {
+                "source": "https://github.com/wzhanjun/igt-sdk/tree/master",
+                "issues": "https://github.com/wzhanjun/igt-sdk/issues"
+            },
+            "time": "2019-03-23T08:29:57+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "wzhanjun/igt-sdk": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.0"
+    },
     "platform-dev": []
 }
