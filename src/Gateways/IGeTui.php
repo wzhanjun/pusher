@@ -27,14 +27,14 @@ class IGeTui implements GatewayInterface
      *
      * @var
      */
-    protected $clientConfig;
+    protected $appConfig;
 
 
     public function __construct(array $config)
     {
         $this->config = new Config($config);
 
-        $this->toClient();
+        $this->toApp();
     }
 
     /**
@@ -45,7 +45,7 @@ class IGeTui implements GatewayInterface
      */
     public function send(Message $message, Target $target)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         switch ($target->getPushType())
         {
@@ -79,7 +79,7 @@ class IGeTui implements GatewayInterface
      */
     public function bindAlias($alias, $deviceId)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->bindAlias($alias, $deviceId);
     }
@@ -94,7 +94,7 @@ class IGeTui implements GatewayInterface
      */
     public function queryAlias($deviceId)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->queryAlias($deviceId);
     }
@@ -109,7 +109,7 @@ class IGeTui implements GatewayInterface
      */
     public function getClientIdStatus($deviceId)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->getClientIdStatus($deviceId);
     }
@@ -125,7 +125,7 @@ class IGeTui implements GatewayInterface
      */
     public function setDeviceTags(array $tagList, $deviceId)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->setDeviceTags($tagList, $deviceId);
     }
@@ -138,7 +138,7 @@ class IGeTui implements GatewayInterface
      */
     public function getDeviceTags($deviceId)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->getDeviceTags($deviceId);
     }
@@ -152,34 +152,32 @@ class IGeTui implements GatewayInterface
      */
     public function getPushResultByTaskList(array $taskList)
     {
-        $client = new Client($this->clientConfig);
+        $client = new Client($this->appConfig);
 
         return $client->getPushResultByTaskList($taskList);
     }
 
 
     /**
-     * to client
-     *
-     * @param null $client
-     * @return $this
+     * @param null $app
+     * @return $this|GatewayInterface
      * @throws Exception
      */
-    public function toClient($client = null)
+    public function toApp($app = null)
     {
-        if (!$client)
+        if (!$app)
         {
-            $client = $this->config->get('default_client');
+            $app = $this->config->get('default_app');
         }
 
-        $config = $this->config->get("clients.{$client}");
+        $config = $this->config->get("apps.{$app}");
 
         if (empty($config))
         {
-            throw new Exception(sprintf("client %s config not exist", $client));
+            throw new Exception(sprintf("app %s config not exist", $app));
         }
 
-        $this->clientConfig = new Config($config);
+        $this->appConfig = new Config($config);
 
         return $this;
     }

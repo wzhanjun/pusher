@@ -4,6 +4,7 @@ namespace Wzhanjun\Push\Gateways;
 
 use Wzhanjun\Push\Contracts\GatewayInterface;
 use Wzhanjun\Push\Contracts\MessageInterface as Message;
+use Wzhanjun\Push\Contracts\TargetInterface as Target;
 
 class AliPush implements GatewayInterface
 {
@@ -17,9 +18,15 @@ class AliPush implements GatewayInterface
         // TODO: Implement setSendTo() method.
     }
 
-    public function send(Message $message)
+    public function send(Message $message, Target $target)
     {
-        return 'alipush send';
+        // TODO: Implement send() method.
+    }
+
+
+    public function toApp($app = null)
+    {
+        // TODO: Implement toApp() method.
     }
 
 

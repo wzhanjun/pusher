@@ -7,7 +7,7 @@ use Wzhanjun\Push\Contracts\MessageInterface as Message;
 
 interface GatewayInterface
 {
-    public function toClient($client = null);
+    public function toApp($app = null);
 
     public function send(Message $message, Target $target);
 

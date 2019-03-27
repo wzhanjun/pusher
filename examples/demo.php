@@ -13,9 +13,11 @@ try {
     $message->setMessageType(\Wzhanjun\Push\Gateways\IGeTui\Message::MESSAGE_TYPE_NOTICE);
     $message->setBody('api push content');
     $message->setTitle('api push title');
+    $message->setIsOffline(false);
 
     $target  = new \Wzhanjun\Push\Gateways\IGeTui\Target();
-    $target->setDeviceId('92ce1a5e91a871f763d2b8274b709053');
+    // $target->setDeviceId('92ce1a5e91a871f763d2b8274b709053');
+    $target->setDeviceId('95eae00faa6fcd9325b7a433cfd03e0f');
     // $target->setAll();
     // $target->setTargetList(['95eae00faa6fcd9325b7a433cfd03e0f'], \Wzhanjun\Push\Gateways\IGeTui\Target::PUSH_TYPE_DEVICE_LIST);
 
@@ -29,7 +31,7 @@ try {
      ]);*/
      // $result = $push->gateway()->getClientIdStatus('95eae00faa6fcd9325b7a433cfd03e0f');
      // $target->setAlias('test');
-      $result = $push->gateway('igetui')->toClient('demo')
+      $result = $push->gateway('igetui')->toApp('android')
                     ->send($message, $target);
 
     var_dump($result);
