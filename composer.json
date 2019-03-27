@@ -12,19 +12,13 @@
     "require": {
         "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.3",
-        "wzhanjun/igt-sdk":"dev-master"
+        "wzhanjun/igt-sdk":"^1.0"
     },
     "autoload": {
         "psr-4": {
             "Wzhanjun\\Push\\": "src"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:wzhanjun/igt-sdk.git"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
