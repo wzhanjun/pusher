@@ -347,19 +347,18 @@ class Client
         //iOS推送需要设置的pushInfo字段
         $apn = new IGtAPNPayload();
         $alertmsg = new DictionaryAlertMsg();
-        $apn->alertMsg = $alertmsg;//"alertMsg";
-        //$apn->badge = 11;
-        $apn->actionLocKey = "启动";
-        // $apn->category = "ACTIONABLE";
-        // $apn->contentAvailable = 1;
-        $apn->locKey = $message->getBody() . '';
-        $apn->title  = $message->getTitle() . '';
-        $apn->titleLocArgs = array("titleLocArgs");
-        $apn->titleLocKey = $message->getTitle() . '';
-        $apn->body = $message->getBody() . '';
-        $apn->customMsg = array("payload" => $message->getPayload() . '');
-        $apn->launchImage = "launchImage";
-        $apn->locArgs = array("locArgs");
+
+        $alertmsg->body         = $message->getBody() . '';
+        $alertmsg->title        = $message->getTitle() . '';
+        $alertmsg->locArgs      = array("locargs");
+        $alertmsg->launchImage  = "launchimage";
+        $alertmsg->actionLocKey = "ActionLockey";
+        $alertmsg->actionLocKey = "启动";
+        $apn->alertMsg          = $alertmsg;
+        $apn->badge             = 1;
+        $apn->category          = "ACTIONABLE";
+        $apn->contentAvailable  = 1;
+        $apn->customMsg         = array("payload" => $message->getPayload() . '');
 
         $template->set_apnInfo($apn);
 
