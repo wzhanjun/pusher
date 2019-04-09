@@ -9,15 +9,17 @@ $push = new \Wzhanjun\Push\Push($config);
 // 95eae00faa6fcd9325b7a433cfd03e0f
 
 try {
-    $message = new \Wzhanjun\Push\Gateways\IGeTui\Message();
-    $message->setMessageType(\Wzhanjun\Push\Gateways\IGeTui\Message::MESSAGE_TYPE_NOTICE);
-    $message->setBody('api push content');
-    $message->setTitle('api push title');
-    $message->setIsOffline(false);
+    $message = new \Wzhanjun\Push\Gateways\Igetui\Message();
+    $message->setMessageType(\Wzhanjun\Push\Gateways\Igetui\Message::MESSAGE_TYPE_TRANSMISSION);
+    //$message->setBody('api push content');
+    //$message->setTitle('api push title');
+    // $message->setIsOffline(true);
+    $message->setIsVoip(true);
+    $message->setVoIPPayload(json_encode(['hello' => 'voip1233']));
 
-    $target  = new \Wzhanjun\Push\Gateways\IGeTui\Target();
+    $target  = new \Wzhanjun\Push\Gateways\Igetui\Target();
     // $target->setDeviceId('92ce1a5e91a871f763d2b8274b709053');
-    $target->setDeviceId('95eae00faa6fcd9325b7a433cfd03e0f');
+    $target->setDeviceId('0d971e29851025dcf1d8f8f8a879bada');
     // $target->setAll();
     // $target->setTargetList(['95eae00faa6fcd9325b7a433cfd03e0f'], \Wzhanjun\Push\Gateways\IGeTui\Target::PUSH_TYPE_DEVICE_LIST);
 

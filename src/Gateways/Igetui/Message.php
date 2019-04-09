@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzhanjun\Push\Gateways\IGeTui;
+namespace Wzhanjun\Push\Gateways\Igetui;
 
 use Wzhanjun\Push\Contracts\MessageInterface;
 
@@ -76,6 +76,11 @@ class Message implements MessageInterface
 
 
     private $extra;
+
+
+    private $isVoIP = false;
+
+    private $voIPPayload = '';
 
     /**
      * @return mixed
@@ -265,5 +270,45 @@ class Message implements MessageInterface
     {
         $this->extra[$key] = $val;
     }
+
+    /**
+     * @return bool
+     */
+    public function isVoIP(): bool
+    {
+        return $this->isVoIP;
+    }
+
+    /**
+     * @param bool $isVoIP
+     * @return $this
+     */
+    public function setIsVoIP(bool $isVoIP)
+    {
+        $this->isVoIP = $isVoIP;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVoIPPayload(): string
+    {
+        return $this->voIPPayload;
+    }
+
+    /**
+     * @param string $voIPPayload
+     * @return $this
+     */
+    public function setVoIPPayload(string $voIPPayload)
+    {
+        $this->voIPPayload = $voIPPayload;
+
+        return $this;
+    }
+
+
 
 }

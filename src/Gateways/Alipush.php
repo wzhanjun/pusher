@@ -6,7 +6,7 @@ use Wzhanjun\Push\Contracts\GatewayInterface;
 use Wzhanjun\Push\Contracts\MessageInterface as Message;
 use Wzhanjun\Push\Contracts\TargetInterface as Target;
 
-class AliPush implements GatewayInterface
+class Alipush implements GatewayInterface
 {
     public function setDeviceType($deviceType)
     {

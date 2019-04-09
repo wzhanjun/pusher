@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzhanjun\Push\Gateways\IGeTui;
+namespace Wzhanjun\Push\Gateways\Igetui;
 
 use Wzhanjun\Push\Contracts\TargetInterface;
 

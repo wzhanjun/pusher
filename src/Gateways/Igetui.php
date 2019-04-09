@@ -4,12 +4,12 @@ namespace Wzhanjun\Push\Gateways;
 
 use Wzhanjun\Push\Support\Config;
 use Wzhanjun\Push\Exceptions\Exception;
-use Wzhanjun\Push\Gateways\IGeTui\Client;
+use Wzhanjun\Push\Gateways\Igetui\Client;
 use Wzhanjun\Push\Contracts\GatewayInterface;
 use Wzhanjun\Push\Contracts\TargetInterface as Target;
 use Wzhanjun\Push\Contracts\MessageInterface as Message;
 
-class IGeTui implements GatewayInterface
+class Igetui implements GatewayInterface
 {
 
     protected $config;
@@ -29,7 +29,11 @@ class IGeTui implements GatewayInterface
      */
     protected $appConfig;
 
-
+    /**
+     * IGeTui constructor.
+     * @param array $config
+     * @throws Exception
+     */
     public function __construct(array $config)
     {
         $this->config = new Config($config);

@@ -15,7 +15,7 @@ class Apns implements GatewayInterface
     }
 
 
-    public function toClient($client = null)
+    public function toApp($client = null)
     {
         // TODO: Implement toClient() method.
     }

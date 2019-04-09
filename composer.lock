@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0dbea7c6d3784a4a3a2e295ef0eb087d",
+    "content-hash": "7629569a538f967e94f7aba8e3a51152",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -311,17 +311,23 @@
         },
         {
             "name": "wzhanjun/igt-sdk",
-            "version": "dev-master",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wzhanjun/igt-sdk.git",
-                "reference": "2db89bedc3c434274578dd3fee1e4aae09de14b7"
+                "reference": "bff813f871c936be546e4c4dabed22d427358e91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wzhanjun/igt-sdk/zipball/2db89bedc3c434274578dd3fee1e4aae09de14b7",
-                "reference": "2db89bedc3c434274578dd3fee1e4aae09de14b7",
-                "shasum": ""
+                "url": "https://api.github.com/repos/wzhanjun/igt-sdk/zipball/bff813f871c936be546e4c4dabed22d427358e91",
+                "reference": "bff813f871c936be546e4c4dabed22d427358e91",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "type": "library",
             "autoload": {
@@ -329,6 +335,7 @@
                     "Wzhanjun\\Igetui\\Sdk\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -339,19 +346,13 @@
                 }
             ],
             "description": "igetui sdk",
-            "support": {
-                "source": "https://github.com/wzhanjun/igt-sdk/tree/master",
-                "issues": "https://github.com/wzhanjun/igt-sdk/issues"
-            },
-            "time": "2019-03-23T08:29:57+00:00"
+            "time": "2019-04-09T13:57:07+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "wzhanjun/igt-sdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

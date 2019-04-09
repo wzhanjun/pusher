@@ -1,11 +1,12 @@
 <?php
 
-namespace Wzhanjun\Push\Gateways\IGeTui;
+namespace Wzhanjun\Push\Gateways\Igetui;
 
-use Wzhanjun\Igetui\Sdk\IGetui\IGtAppMessage;
-use Wzhanjun\Igetui\Sdk\IGetui\IGtListMessage;
+use Wzhanjun\Igetui\Sdk\Igetui\IGtAppMessage;
+use Wzhanjun\Igetui\Sdk\Igetui\IGtListMessage;
 use Wzhanjun\Igetui\Sdk\Igetui\Utils\AppConditions;
 use Wzhanjun\Igetui\Sdk\IGtPush;
+use Wzhanjun\Igetui\Sdk\Payload\VOIPPayload;
 use Wzhanjun\Push\Support\Config;
 use Wzhanjun\Push\Traits\HasHttpRequest;
 use Wzhanjun\Igetui\Sdk\Igetui\IGtTarget;
@@ -359,7 +360,6 @@ class Client
         $apn->category          = "ACTIONABLE";
         $apn->contentAvailable  = 1;
         $apn->customMsg         = array("payload" => $message->getPayload() . '');
-
         $template->set_apnInfo($apn);
 
         return $template;
@@ -448,7 +448,11 @@ class Client
         return $template;
     }
 
-
+    /**
+     * @param Message $message
+     * @return IGtTransmissionTemplate
+     * @throws \Exception
+     */
     protected function igtTransmissionTemplate(Message $message)
     {
 
@@ -474,28 +478,35 @@ class Client
         //        $template->set_apnInfo($apn);
         //        $message = new IGtSingleMessage();
 
-        //APN高级推送
-        $apn = new IGtAPNPayload();
-        $alertmsg = new DictionaryAlertMsg();
-        $alertmsg->body = $message->getBody() . '';
-        $alertmsg->actionLocKey = "ActionLockey";
-        $alertmsg->locKey = "LocKey";
-        $alertmsg->locArgs = array("locargs");
-        $alertmsg->launchImage = "launchimage";
+        if ($message->isVoIp()) {
 
-//        IOS8.2 支持
-        $alertmsg->title = $message->getTitle() . '';
-        $alertmsg->titleLocKey = "TitleLocKey";
-        $alertmsg->titleLocArgs = array("TitleLocArg");
-        $apn->alertMsg = $alertmsg;
+            $voip = new VOIPPayload();
+            $voip->setVoIPPayload($message->getVoIPPayload() . '');
+            $template->set_apnInfo($voip);
+        } else {
+            //APN高级推送
+            $apn = new IGtAPNPayload();
+            $alertmsg = new DictionaryAlertMsg();
+            $alertmsg->body = $message->getBody() . '';
+            $alertmsg->actionLocKey = "ActionLockey";
+            $alertmsg->locKey = "LocKey";
+            $alertmsg->locArgs = array("locargs");
+            $alertmsg->launchImage = "launchimage";
 
-        //$apn->badge = 7;
-        $apn->sound = "";
-        $apn->add_customMsg("payload", $message->getPayload() . '');
-        $apn->contentAvailable = 1;
-        $apn->category = "ACTIONABLE";
+            // IOS8.2 支持
+            $alertmsg->title = $message->getTitle() . '';
+            $alertmsg->titleLocKey = "TitleLocKey";
+            $alertmsg->titleLocArgs = array("TitleLocArg");
+            $apn->alertMsg = $alertmsg;
 
-        $template->set_apnInfo($apn);
+            //$apn->badge = 7;
+            $apn->sound = "";
+            $apn->add_customMsg("payload", $message->getPayload() . '');
+            $apn->contentAvailable = 1;
+            $apn->category = "ACTIONABLE";
+
+            $template->set_apnInfo($apn);
+        }
 
         return $template;
 

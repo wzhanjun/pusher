@@ -36,6 +36,12 @@ namespace Wzhanjun\Push\Contracts;
  * @method getExtra($key)
  * @method setExtra($key, $val)
  *
+ * @method isVoIp()
+ * @method setIsVoIP()
+ *
+ * @method getVoIPPayload()
+ * @method setVoIPPayload()
+ *
  * Interface MessageInterface
  * @package Wzhanjun\Push\Contracts
  */
