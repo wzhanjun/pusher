@@ -335,7 +335,7 @@ class Client
         $template = new IGtNotificationTemplate();
         $template->set_appId($this->appId);                     // 应用appid
         $template->set_appkey($this->appkey);                   // 应用$this->APPKEY
-        $template->set_transmissionType(1);     // 透传消息类型
+        $template->set_transmissionType($message->getTransmissionType());     // 透传消息类型
         $template->set_transmissionContent($message->getTitle() . '');  // 透传内容
         $template->set_title($message->getTitle() . '');   // 通知栏标题
         $template->set_text($message->getBody() . '');     // 通知栏内容
@@ -343,6 +343,7 @@ class Client
         $template->set_isRing($message->isBell());             // 是否响铃
         $template->set_isVibrate($message->isVibration());     // 是否震动
         $template->set_isClearable($message->isClearAble());   // 通知栏是否可清除
+
         //$template->set_duration(BEGINTIME,ENDTIME);          // 设置ANDROID客户端在此时间区间内展示消息
 
         //iOS推送需要设置的pushInfo字段
@@ -459,7 +460,7 @@ class Client
         $template = new IGtTransmissionTemplate();
         $template->set_appId($this->appId); //应用appid
         $template->set_appkey($this->appkey); //应用$this->APPKEY
-        $template->set_transmissionType(1); //透传消息类型
+        $template->set_transmissionType($message->getTransmissionType()); //透传消息类型
         $template->set_transmissionContent($message->getPayload()); //透传内容
 
         //$template->set_duration(BEGINTIME,ENDTIME); //设置ANDROID客户端在此时间区间内展示消息

@@ -42,6 +42,9 @@ namespace Wzhanjun\Push\Contracts;
  * @method getVoIPPayload()
  * @method setVoIPPayload()
  *
+ * @method getTransmissionType()
+ * @method setTransmissionType()
+ *
  * Interface MessageInterface
  * @package Wzhanjun\Push\Contracts
  */

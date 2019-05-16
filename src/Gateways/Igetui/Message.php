@@ -75,12 +75,36 @@ class Message implements MessageInterface
     private $isClearAble = true;
 
 
+    /**
+     * 额外数据
+     *
+     * @var
+     */
     private $extra;
 
-
+    /**
+     * 是否启动voip
+     *
+     * @var bool
+     */
     private $isVoIP = false;
 
+    /**
+     * voip 消息体类型
+     *
+     * @var string
+     */
     private $voIPPayload = '';
+
+    /**
+     * 透传启动类型
+     *
+     * 1为立即启动，2则广播等待客户端自启动
+     *
+     * @var int
+     */
+    private $transmissionType = 2;
+
 
     /**
      * @return mixed
@@ -308,6 +332,26 @@ class Message implements MessageInterface
 
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getTransmissionType(): int
+    {
+        return $this->transmissionType;
+    }
+
+    /**
+     * @param int $transmissionType
+     * @return Message
+     */
+    public function setTransmissionType(int $transmissionType)
+    {
+        $this->transmissionType = $transmissionType;
+
+        return $this;
+    }
+
 
 
 
